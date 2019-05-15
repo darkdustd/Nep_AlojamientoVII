@@ -1,0 +1,88 @@
+  <div class= "container">
+<p id="notice"><%= notice %></p>
+
+<h1>Comentarios</h1>
+
+<% if current_user.tiipo == 'true' %>
+
+
+
+<tbody>
+  <% @foros.each do |foro| %>
+    <tr>
+      <div class="col s12 m7">
+          <div class="card horizontal">
+            <div class="card-image">
+
+
+              <img src="/images/NextPurple.jpg">
+
+
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p><br>Comentario: <%= foro.comentario %></br>
+
+
+              <% if foro.puntuacion == 3 %>
+          <br>  Puntuacion : <font color="yellow"><%= foro.puntuacion %></font></br>
+
+            <% else if foro.puntuacion >= 4 %>
+          <br>  Puntuacion : <font color="green"><%= foro.puntuacion %></font></br>
+            <% else %>
+            <br>  Puntuacion : <font color="red"><%= foro.puntuacion %></font></br>
+            <% end %>
+            <% end %>
+
+
+
+
+
+
+              </div>
+              <div class="card-action">
+                <%= link_to 'Show', foro %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </tr>
+
+
+
+
+
+<% end %>
+
+
+<% else %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comentario</th>
+      <th>Puntuacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foros.each do |foro| %>
+      <tr>
+        <td><%= foro.comentario %></td>
+        <td><%= foro.puntuacion %></td>
+        <td><%= link_to 'Show', foro %></td>
+        <td><%= link_to 'Edit', edit_foro_path(foro) %></td>
+        <td><%= link_to 'Destroy', foro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foro', new_foro_path %>
+
+<% end %>

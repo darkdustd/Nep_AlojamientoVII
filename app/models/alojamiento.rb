@@ -1,0 +1,2 @@
+class Alojamiento < ApplicationRecord
+end

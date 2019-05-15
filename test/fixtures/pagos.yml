@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_tarjeta: MyString
+  numero_tarjeta: 
+  cvv_tarjeta: 
+  fecha_tarjeta: 2019-05-11
+
+two:
+  nombre_tarjeta: MyString
+  numero_tarjeta: 
+  cvv_tarjeta: 
+  fecha_tarjeta: 2019-05-11

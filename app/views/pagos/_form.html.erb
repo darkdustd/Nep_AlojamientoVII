@@ -1,0 +1,37 @@
+<%= form_with(model: pago, local: true) do |form| %>
+  <% if pago.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pago.errors.count, "error") %> prohibited this pago from being saved:</h2>
+
+      <ul>
+      <% pago.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre_tarjeta %>
+    <%= form.text_field :nombre_tarjeta, id: :pago_nombre_tarjeta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_tarjeta %>
+    <%= form.text_field :numero_tarjeta, id: :pago_numero_tarjeta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cvv_tarjeta %>
+    <%= form.text_field :cvv_tarjeta, id: :pago_cvv_tarjeta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_tarjeta %>
+    <%= form.date_select :fecha_tarjeta, id: :pago_fecha_tarjeta %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

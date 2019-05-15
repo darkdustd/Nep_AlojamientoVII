@@ -1,0 +1,89 @@
+  <div class= "container">
+<p id="notice"><%= notice %></p>
+
+<h1>Eventos</h1>
+
+<% if current_user.tiipo == 'true' %>
+
+
+
+<table>
+
+
+  <tbody>
+    <% @eventos.each do |evento| %>
+      <tr>
+        <div class="col s12 m7">
+            <h4 class="header"><%= evento.nombre %></h4>
+            <div class="card horizontal">
+              <div class="card-image">
+
+                <% if evento.publico == false %>
+                <img src="/images/NextBlack.jpg">
+                <% else %>
+                <img src="/images/NextPurple.jpg">
+                <% end %>
+
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <p><br>Nombre: <%= evento.nombre %></br>
+                <br>  Descripcion: <%= evento.descripcion %></br>
+                  <br>Fecha: <%= evento.fecha %></br>
+
+                <% if evento.publico == false %>
+            <br>  Evento publico? : <font color="red"><%= evento.publico %></font></br>
+              <% else %>
+            <br>  Evento publico? : <font color="green"><%= evento.publico %></font></br>
+              <% end %>
+
+
+
+
+                </div>
+                <div class="card-action">
+                  <%= link_to 'Show', evento %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+      </tr>
+<% end %>
+
+</table>
+
+<% else %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Fecha</th>
+      <th>Publico</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eventos.each do |evento| %>
+      <tr>
+        <td><%= evento.nombre %></td>
+        <td><%= evento.descripcion %></td>
+        <td><%= evento.fecha %></td>
+        <td><%= evento.publico %></td>
+        <td><%= link_to 'Show', evento %></td>
+        <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
+        <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+<% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Evento', new_evento_path %>
+<% end %>
+</div>

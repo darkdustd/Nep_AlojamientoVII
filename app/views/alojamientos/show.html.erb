@@ -1,0 +1,72 @@
+  <div class= "container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @alojamiento.nombre %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @alojamiento.direccion %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @alojamiento.precio %>
+</p>
+
+<p>
+  <strong>Descipcion:</strong>
+  <%= @alojamiento.descipcion %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @alojamiento.tipo %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @alojamiento.imagen %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @alojamiento.latitud %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @alojamiento.longitud %>
+</p>
+
+<p>
+  <strong>Cercania:</strong>
+  <%= @alojamiento.cercania %>
+</p>
+
+<p>
+  <strong>Wifi:</strong>
+  <%= @alojamiento.wifi %>
+</p>
+
+<p>
+  <strong>Bano privado:</strong>
+  <%= @alojamiento.bano_privado %>
+</p>
+
+<p>
+  <strong>Alimentacion:</strong>
+  <%= @alojamiento.alimentacion %>
+</p>
+
+<p>
+  <strong>Parqueadero:</strong>
+  <%= @alojamiento.parqueadero %>
+</p>
+
+<%= link_to 'Edit', edit_alojamiento_path(@alojamiento) %> |
+<%= link_to 'Back', alojamientos_path %>
+
+</div>

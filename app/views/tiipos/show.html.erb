@@ -1,0 +1,15 @@
+  <div class= "container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tiipo.nombre %>
+</p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @tiipo.codigo %>
+</p>
+
+<%= link_to 'Edit', edit_tiipo_path(@tiipo) %> |
+<%= link_to 'Back', tiipos_path %>

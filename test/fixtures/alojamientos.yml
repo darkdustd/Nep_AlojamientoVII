@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  direccion: MyString
+  precio: 
+  descipcion: MyString
+  tipo: MyString
+  imagen: MyString
+  latitud: 
+  longitud: 
+  cercania: 
+  wifi: false
+  bano_privado: false
+  alimentacion: false
+  parqueadero: false
+
+two:
+  nombre: MyString
+  direccion: MyString
+  precio: 
+  descipcion: MyString
+  tipo: MyString
+  imagen: MyString
+  latitud: 
+  longitud: 
+  cercania: 
+  wifi: false
+  bano_privado: false
+  alimentacion: false
+  parqueadero: false

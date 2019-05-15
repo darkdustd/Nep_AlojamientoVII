@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppAlojamiento</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+  <nav>
+    <div class="indigo accent-4 nav-wrapper">
+      <a href="http://localhost:3000" class="brand-logo indigo accent-4">Hospedaje UNAB</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+        <li><a href=http://localhost:3000/alojamientos>Alojamientos</a></li>
+        <li><a href=http://localhost:3000/eventos>Eventos</a></li>
+        <li><a href=http://localhost:3000/pagos>Pagos</a></li>
+        <li><a href=http://localhost:3000/foros>Foros</a></li>
+
+         <li><b><%=current_user.nombre%></b></li>
+          <li>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          </li>
+        <% else %>
+          <li>
+          <%= link_to('Login', new_user_session_path)  %>
+          </li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
+
+
+
+    <%= yield %>
+
+
+
+  </body>
+</html>

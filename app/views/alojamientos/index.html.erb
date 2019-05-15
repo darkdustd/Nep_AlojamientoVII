@@ -1,0 +1,137 @@
+  <div class= "container">
+
+    <p id="notice"><%= notice %></p>
+
+<h1>Alojamientos</h1>
+    <% if current_user.tiipo == 'true' %>
+
+
+
+
+    <table>
+
+
+      <tbody>
+        <% @alojamientos.each do |alojamiento| %>
+          <tr>
+            <div class="col s12 m7">
+                <h4 class="header"><%= alojamiento.nombre %></h4>
+                <div class="card horizontal">
+                  <div class="card-image">
+                    <img src="/images/NextBlack.jpg">
+                  </div>
+                  <div class="card-stacked">
+                    <div class="card-content">
+                      <p><br>Nombre: <%= alojamiento.nombre %></br>
+                      Dirreccion: <%= alojamiento.direccion %>
+                      <br>Precio: <%= alojamiento.precio %></br>
+                      Descripcion: <%= alojamiento.descipcion %>
+                      <br>Tipo: <%= alojamiento.tipo %></br>
+
+                      <% if alojamiento.cercania == 3 %>
+                    <br>Cercania a la UNAB: <font color="yellow"><%= alojamiento.cercania %></font></br>
+                    <% else if alojamiento.cercania >= 4 %>
+                    <br>Cercania a la UNAB: <font color="green"><%= alojamiento.cercania %></font></br>
+                    <% else %>
+                    <br>Cercania a la UNAB:<font color="red"> <%= alojamiento.cercania %></font></br>
+                    <% end %>
+                    <% end %>
+
+
+                    <% if alojamiento.wifi == false %>
+                  Wifi: <font color="red"><%= alojamiento.wifi %></font>
+                  <% else %>
+                  Wifi: <font color="green"><%= alojamiento.wifi %></font>
+                    <% end %>
+
+                    <% if alojamiento.bano_privado == false %>
+                <br>Baño privado:<font color="red"> <%= alojamiento.bano_privado %></font></br>
+                <% else %>
+                <br>Baño privado:<font color="green"> <%= alojamiento.bano_privado %></font></br>
+                <% end %>
+
+                  <% if alojamiento.alimentacion == false %>
+              Alimentacion: <font color="red"><%= alojamiento.alimentacion %></font>
+              <% else %>
+              Alimentacion:<font color="green"> <%= alojamiento.alimentacion %></font>
+              <% end %>
+
+
+              <% if alojamiento.parqueadero == false %>
+            <br>Parqueadero:<font color="red"> <%= alojamiento.parqueadero %></font></br>
+            <% else %>
+            <br>Parqueadero: <font color="green"><%= alojamiento.parqueadero %></font></br>
+            <% end %>
+
+
+
+                    </div>
+                    <div class="card-action">
+                      <%= link_to 'Show', alojamiento %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+          </tr>
+
+        <% end %>
+      </tbody>
+
+
+
+
+
+    </table>
+
+
+
+
+
+    <% else %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Precio</th>
+      <th>Descipcion</th>
+      <th>Tipo</th>
+      <th>Cercania</th>
+      <th>Wifi</th>
+      <th>Bano privado</th>
+      <th>Alimentacion</th>
+      <th>Parqueadero</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alojamientos.each do |alojamiento| %>
+      <tr>
+        <td><%= alojamiento.nombre %></td>
+        <td><%= alojamiento.direccion %></td>
+        <td><%= alojamiento.precio %></td>
+        <td><%= alojamiento.descipcion %></td>
+        <td><%= alojamiento.tipo %></td>
+        <td><%= alojamiento.cercania %></td>
+        <td><%= alojamiento.wifi %></td>
+        <td><%= alojamiento.bano_privado %></td>
+        <td><%= alojamiento.alimentacion %></td>
+        <td><%= alojamiento.parqueadero %></td>
+        <td><%= link_to 'Show', alojamiento %></td>
+        <td><%= link_to 'Edit', edit_alojamiento_path(alojamiento) %></td>
+        <td><%= link_to 'Destroy', alojamiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alojamiento', new_alojamiento_path %>
+<% end %>
+  </div>

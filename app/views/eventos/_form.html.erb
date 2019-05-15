@@ -1,0 +1,39 @@
+<%= form_with(model: evento, local: true) do |form| %>
+  <% if evento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+      <ul>
+      <% evento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :evento_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :evento_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, id: :evento_fecha %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= form.select :publico,
+    options_for_select([['Si',1],['No',0]], params[:publico]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>El evento es publico?</label>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

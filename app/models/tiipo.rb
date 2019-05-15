@@ -1,0 +1,2 @@
+class Tiipo < ApplicationRecord
+end

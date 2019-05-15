@@ -1,0 +1,3 @@
+class Foro < ApplicationRecord
+  
+end

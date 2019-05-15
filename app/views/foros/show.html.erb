@@ -1,0 +1,15 @@
+  <div class= "container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @foro.comentario %>
+</p>
+
+<p>
+  <strong>Puntuacion:</strong>
+  <%= @foro.puntuacion %>
+</p>
+
+<%= link_to 'Edit', edit_foro_path(@foro) %> |
+<%= link_to 'Back', foros_path %>

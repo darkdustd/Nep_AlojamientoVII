@@ -1,0 +1,25 @@
+  <div class= "container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre tarjeta:</strong>
+  <%= @pago.nombre_tarjeta %>
+</p>
+
+<p>
+  <strong>Numero tarjeta:</strong>
+  <%= @pago.numero_tarjeta %>
+</p>
+
+<p>
+  <strong>Cvv tarjeta:</strong>
+  <%= @pago.cvv_tarjeta %>
+</p>
+
+<p>
+  <strong>Fecha tarjeta:</strong>
+  <%= @pago.fecha_tarjeta %>
+</p>
+
+<%= link_to 'Edit', edit_pago_path(@pago) %> |
+<%= link_to 'Back', pagos_path %>

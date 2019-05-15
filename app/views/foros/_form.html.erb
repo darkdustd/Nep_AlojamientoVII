@@ -1,0 +1,29 @@
+<%= form_with(model: foro, local: true) do |form| %>
+  <% if foro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(foro.errors.count, "error") %> prohibited this foro from being saved:</h2>
+
+      <ul>
+      <% foro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :comentario %>
+    <%= form.text_field :comentario, id: :foro_comentario %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= form.select :puntuacion,
+    options_for_select([['5',5],['4',4],['3',3],['2',2],['1',1],['0',0]], params[:puntuacion]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>Puntuacion</label>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

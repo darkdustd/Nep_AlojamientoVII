@@ -1,0 +1,99 @@
+<%= form_with(model: alojamiento, local: true) do |form| %>
+  <% if alojamiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alojamiento.errors.count, "error") %> prohibited this alojamiento from being saved:</h2>
+
+      <ul>
+      <% alojamiento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :alojamiento_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :alojamiento_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio %>
+    <%= form.text_field :precio, id: :alojamiento_precio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descipcion %>
+    <%= form.text_field :descipcion, id: :alojamiento_descipcion %>
+  </div>
+
+
+  <div class="input-field col s12">
+    <%= form.select :tipo,
+    options_for_select([['Casa','casa'],['Apartamento','apartamento'],['Caja','caja']], params[:tipo]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>Tipo de vivienda</label>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :imagen %>
+    <%= form.text_field :imagen, id: :alojamiento_imagen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitud %>
+    <%= form.text_field :latitud, id: :alojamiento_latitud %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitud %>
+    <%= form.text_field :longitud, id: :alojamiento_longitud %>
+  </div>
+
+
+  <div class="input-field col s12">
+    <%= form.select :cercania,
+    options_for_select([['Muy cerca',1],['Cerca',2],['Promedio',3],['Lejos',4],['Muy lejos',5]], params[:cercania]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>Cercania a la UNAB (el jardin)</label>
+  </div>
+
+
+  <div class="input-field col s12">
+    <%= form.select :wifi,
+    options_for_select([['Si',1],['No',0]], params[:wifi]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>El alojamiento tiene Wifi?</label>
+  </div>
+
+  <div class="input-field col s12">
+    <%= form.select :bano_privado,
+    options_for_select([['Si',1],['No',0]], params[:bano_privado]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>El alojamiento tiene baño privado?</label>
+  </div>
+
+
+  <div class="input-field col s12">
+    <%= form.select :alimentacion,
+    options_for_select([['Si',1],['No',0]], params[:alimentacion]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>Ofrece alimentacion a sus huespedes?</label>
+  </div>
+
+  <div class="input-field col s12">
+    <%= form.select :parqueadero,
+    options_for_select([['Si',1],['No',0]], params[:parqueadero]),
+    {}, { :class => 'span3 controls controls-row' } %>
+    <label>El alojamiento tiene parqueadero para sus huespedes?</label>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
